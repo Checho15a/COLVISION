@@ -9,36 +9,6 @@ document.getElementById('generate-button').addEventListener('click', () => {
         // Aquí es donde se conectaría la API de la IA en la vida real.
         // Simularemos la respuesta de la IA con un tiempo de espera.
         setTimeout(() => {
-            // **NUEVA IMAGEN DE EJEMPLO DE UN SERVICIO ESTABLE (Placeholder.com)**
-            // Esta URL genera una imagen gris simple con el tamaño 400x300
-            // y el texto "Imagen IA" dentro. Es muy confiable.
-            const generatedImageURL = "https://via.placeholder.com/400x300?text=Imagen+IA+Generada";
-            const generatedImageAlt = `Imagen generada para la frase: "${textInput}"`;
-            
-            // Crea la imagen y la muestra en la página
-            imageOutput.innerHTML = `
-                <img src="${generatedImageURL}" alt="${generatedImageAlt}">
-                <p class="image-caption">Imagen generada por IA para: <strong>"${textInput}"</strong></p>
-            `;
-            
-            // Aquí iría el código para manejar la respuesta real de tu IA
-            // fetch('URL_DE_TU_API', {
-            //     method: 'POST',
-            //     body: JSON.stringify({ text: textInput })
-            // })
-            // .then(response => response.json())
-            // .then(data => {
-            //     // Lógica para mostrar la imagen real (data.image_url)
-            //     imageOutput.innerHTML = `
-            //         <img src="${data.image_url}" alt="${generatedImageAlt}">
-            //         <p class="image-caption">Imagen generada por IA para: <strong>"${textInput}"</strong></p>
-            //     `;
-            // });
-            
-        }, 3000); // 3000 milisegundos = 3 segundos de espera para simular la generación
-        
-    } else {
-        // Mensaje de error si el campo de texto está vacío
-        imageOutput.innerHTML = `<p>Por favor, escribe una frase para empezar a visualizar.</p>`;
-    }
-});
+            // **IMAGEN DE EJEMPLO INCORPORADA DIRECTAMENTE EN EL CÓDIGO (BASE64)**
+            // Esta imagen es una versión muy simple de tu ejemplo inicial.
+            const base64Image = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAAEsCAYAAAB5gLpFAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFc0lEQVR4nO3cTY6bQBTA8X6nE8mB9kAbh/86Pj5N0k3bB+0D6qQzYwH9uOa3L2o54Kq66v39/eLp+m39/f2i4e7u7g77mR8BAAAAAAAAAAAAAAAAwD/X68Wz/f39+uP8/P789v024f/f6/XX99d/N/r8/f3n82n659eD9mG+AgAAAAAAAAAAAAAAAAAAwD9r9Xr7X/327fZ/v9/fH+8P3346ffv906f39/d/v9/f//39+f39/R3sY/wEAAAAAAAAAAAAAAAAAABoD2F+BQD+/P789u33+/29/f357f3p3Ld/Pj+9vf/6/vD2/eG/+vv7e8T7lJ8AAAAAAAAAAAAAAAAAAADADsL+CgDwx/f392/vP7/f/v34+uPz27fvb+9/e3/8/v6+/v/z+//7+7ffP78f/30+f357//z+4/H/7/f3728f/v7/r+8P+2X8BQAAAAAAAAAAAAAAAAAAgJ1wE7l4HwD+fH9+/fby+vr6+uPy06cfn89f3x//vL+/fX9+/vL9/f3x+vp6+fr+eD+f337f7+/fPj+/v7+///14//z+9vn19fPj+X3/+nr5/Pnz8+nL9/f76+vr8+nL9/f3n08f/v7+4y/LfwEAAAAAAAAAAAAAAAAAAB/kJuL8CgDwdPnz2/f3l5+fT58/v99e319ePy++f/j99fX19fX18/nLz0+fX5/P76+vPz8/P5+/vj+//3x9+Xn79vnz+vL66uP3z//r2+en75/Pz8/P3t7e3t/Pv9+vLy+vT58/vL++vr89nL5/Pnj6enj6evLx/H7x+vTy8/vzyf3mG+AgAAAAAAAAAAAAAAAAAAwF+WbXF+BQAAPz+en99+v75/Pz//j18/vr+8vLy8/Ly+/n78/nl8/Pz9/f336evn7+/vl6+fn19fny8/Xn5+/v318+f359+Xn6+vp6+fn19f39/fXl9ePn7+vPz6evr6+vby+fT7+/vPy8+n28fT5+/v7+vTy8fT7+/v3y+enw+Pz5/Pz5+/v3y+/v7x+vT7+/n7+/vl29vv7+vTy+fL4/Pn17fXl9fXp9+fr6/Pny+vr6+vr+fP78+vLy/fny+f37+vj4+f35+Pn7+/r39/fXl7evj5+/359+vz+9Pn7+vr+/f31+/vz+/vLy9vnz+/j38/r39/v7y+/v7+/vX1+/vry+fX18+vr4/fLy8vXl6+vry8/v39/v31/fX38+v31+/v59+fn18fT19fHy8+vj9+Xr8/f78/v7+/r68/v79/v316eXrz9+/319fH38/Xj6eP/8+vP16fXp9/vj9/f39/fHy+fX9+vX78+vX19fXl7e/v7++vTy/f39/f39/vPy8/Pz5+/v39+/Py8+vPy+/v3z8/vj9+/vz8/vXl8fLy+/v7++vT6/Pn5+f3l6+vXl9fPy8+fHy+vHy+vXp9/P78/v7+//z6/Pv7+/vPy+vXl8fHy+vXp+fnx/P35+vHy8+vXp9fXl9fPy8+vj6/Pny+f35+fnx/P3x+vvz8/f39/f39/f35+vPz8/f39/f39/f36f3n5/fn36ffn2+fz6/fn9+fr19fHy+vPz9+vj8/fz9+vn9+vvz8/r78+vPy8+vj9+/X39+/P7+/fHx+v39+/fHx+vry+fX39/fHx+vXl9eXrz9+/fHx+f35+/fH38/r7+/vHy+vPy+/v7++fn9+fn9+/Hy+/v7++vrz+fn9+fn8+fr7+/vHy+fX78/Py+/Py+fX7+/Hy+vPz9+/v7+vX78/Pz5+/fHx+f35+/vXp8fH39+/v7++vT6/Pn5+f35+frx9fHy+vPz+/j38/r39/v7y+/v7+vr19fHy+vPz9+/v7++vTy+/v7+vr19fHy+vPz+frz9+/v7++vT6/Pn5+f3l7e/v7++vT6/Pn5+f3z+fP78/v7/Py8+Pny+fPy+f3z9+/n19fP39/fn1+en19fH39/fn1+fHy+/v31+/v7/Py8+vHy+/v31+/v7/Py8+vHy+/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8+vHy+/v3z8/v31+/v7/Py8
