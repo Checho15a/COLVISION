@@ -9,9 +9,10 @@ document.getElementById('generate-button').addEventListener('click', () => {
         // Aquí es donde se conectaría la API de la IA en la vida real.
         // Simularemos la respuesta de la IA con un tiempo de espera.
         setTimeout(() => {
-            // Ejemplo de cómo la IA respondería con una imagen
-            // La URL de Imgur anterior dejó de funcionar, esta es una nueva.
-            const generatedImageURL = "https://cdn.pixabay.com/photo/2021/08/17/14/43/hello-6552943_1280.png";
+            // **NUEVA IMAGEN DE EJEMPLO DE UN SERVICIO ESTABLE (Placeholder.com)**
+            // Esta URL genera una imagen gris simple con el tamaño 400x300
+            // y el texto "Imagen IA" dentro. Es muy confiable.
+            const generatedImageURL = "https://via.placeholder.com/400x300?text=Imagen+IA+Generada";
             const generatedImageAlt = `Imagen generada para la frase: "${textInput}"`;
             
             // Crea la imagen y la muestra en la página
@@ -27,7 +28,11 @@ document.getElementById('generate-button').addEventListener('click', () => {
             // })
             // .then(response => response.json())
             // .then(data => {
-            //     // Lógica para mostrar la imagen real
+            //     // Lógica para mostrar la imagen real (data.image_url)
+            //     imageOutput.innerHTML = `
+            //         <img src="${data.image_url}" alt="${generatedImageAlt}">
+            //         <p class="image-caption">Imagen generada por IA para: <strong>"${textInput}"</strong></p>
+            //     `;
             // });
             
         }, 3000); // 3000 milisegundos = 3 segundos de espera para simular la generación
