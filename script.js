@@ -5,23 +5,51 @@ document.getElementById('generate-button').addEventListener('click', () => {
     if (textInput.trim() !== '') {
         // Muestra un mensaje de carga mientras la IA "piensa"
         imageOutput.innerHTML = `<p>Generando imagen... Por favor espera.</p>`;
-        
-        // Simulación de la respuesta de la IA con una imagen Base64
-        setTimeout(() => {
-            // IMAGEN DE EJEMPLO INCORPORADA DIRECTAMENTE EN EL CÓDIGO (BASE64)
-            // La cadena de texto se ha dividido para evitar errores al copiar y pegar.
-            const base64Image = "data:image/svg+xml;base64," +
-                "PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9IiMwMDc2ZmYiLz48dGV4dCB4PSI1MCUiIHk9IjUwJSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjUwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSI+SW1hZ2VuIEFJPC90ZXh0Pjwvc3ZnPg==";
-            const generatedImageAlt = `Imagen generada para la frase: "${textInput}"`;
-            
-            // Crea la imagen y la muestra en la página
-            imageOutput.innerHTML = `
-                <img src="${base64Image}" alt="${generatedImageAlt}">
-                <p class="image-caption">Imagen generada por IA para: <strong>"${textInput}"</strong></p>
-            `;
-            
-        }, 3000); // 3 segundos de espera para simular la generación
-        
+
+        // CONFIGURACIÓN DE LA API DE DALL-E
+        const YOUR_API_KEY = "TU_CLAVE_DE_API_AQUI"; 
+        const API_ENDPOINT = "https://api.openai.com/v1/images/generations";
+
+        // Llamada a la API de DALL-E
+        fetch(API_ENDPOINT, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${YOUR_API_KEY}`
+            },
+            body: JSON.stringify({
+                "model": "dall-e-3",
+                "prompt": textInput,
+                "n": 1,
+                "size": "1024x1024"
+            })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('La respuesta de la red no fue correcta.');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Revisa si la respuesta tiene la imagen (la URL de la imagen)
+            if (data && data.data && data.data.length > 0) {
+                const imageUrl = data.data[0].url;
+                const generatedImageAlt = `Imagen generada para la frase: "${textInput}"`;
+                
+                // Crea la imagen y la muestra en la página
+                imageOutput.innerHTML = `
+                    <img src="${imageUrl}" alt="${generatedImageAlt}">
+                    <p class="image-caption">Imagen generada por IA para: <strong>"${textInput}"</strong></p>
+                `;
+            } else {
+                imageOutput.innerHTML = `<p>Error: No se pudo generar la imagen. Inténtalo de nuevo.</p>`;
+            }
+        })
+        .catch(error => {
+            console.error('Error al llamar a la API:', error);
+            imageOutput.innerHTML = `<p>Ocurrió un error. Por favor, verifica tu clave de API o los créditos.</p>`;
+        });
+
     } else {
         // Mensaje de error si el campo de texto está vacío
         imageOutput.innerHTML = `<p>Por favor, escribe una frase para empezar a visualizar.</p>`;
